@@ -12,7 +12,7 @@ const posts = [
 export default function BlogList() {
   return (
     <section className="page blog-list">
-      <h2>Emotional Wellness Insights</h2>
+      <h2>Emotional Wellness Insights ;</h2>
       <p>Explore thoughtful articles designed to support your mental health journey with compassion and understanding.</p>
       <div className="cards">
         {posts.map((post) => (
