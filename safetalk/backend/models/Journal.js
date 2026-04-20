@@ -1,10 +1,6 @@
-const mongoose = require('mongoose');
-
-const JournalSchema = new mongoose.Schema({
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  entry: { type: String, required: true },
-  mood: { type: String, default: 'neutral' },
-  createdAt: { type: Date, default: Date.now }
+const newEntry = new Journal({
+  userId: req.user.id, // Taken directly from your middleware!
+  entry: req.body.entry,
+  mood: req.body.mood
 });
-
-module.exports = mongoose.model('Journal', JournalSchema);
+await newEntry.save();

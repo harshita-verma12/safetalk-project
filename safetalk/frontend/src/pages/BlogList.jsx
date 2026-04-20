@@ -1,29 +1,71 @@
 import { Link } from 'react-router-dom';
 
 const posts = [
-  { id: '1', title: 'Managing Anxiety with Gentle Techniques', excerpt: 'Discover simple, compassionate ways to soothe anxious feelings. Learn breathing exercises, grounding techniques, and self-compassion practices that can help you find calm in challenging moments. Remember, anxiety is a normal response, and you have the power to nurture yourself through it.', image: '🧘' },
-  { id: '2', title: 'Understanding Your Emotional Landscape', excerpt: 'Emotions are like weather patterns - they change and evolve. Explore how to recognize different feelings, understand their messages, and respond with kindness. Building emotional awareness is a journey of self-discovery and growth.', image: '🌤️' },
-  { id: '3', title: 'Cultivating Emotional Resilience', excerpt: 'Resilience is not about avoiding difficulties, but learning to bounce back with grace. Discover practices that strengthen your inner resources, from mindfulness to supportive relationships. Every challenge is an opportunity to grow stronger and more compassionate.', image: '🌱' },
-  { id: '4', title: 'The Power of Self-Compassion', excerpt: 'In a world that often demands perfection, self-compassion is revolutionary. Learn to treat yourself with the same kindness you would offer a dear friend. This gentle approach can transform how you relate to your struggles and successes.', image: '💝' },
-  { id: '5', title: 'Finding Peace in Daily Life', excerpt: 'Peace is not the absence of chaos, but the ability to find calm within it. Explore simple practices for creating moments of tranquility in your busy day. Small acts of self-care can create ripples of peace that touch every aspect of your life.', image: '🌸' },
-  { id: '6', title: 'Building Healthy Boundaries', excerpt: 'Boundaries are acts of self-love that protect your energy and well-being. Learn to recognize when to say yes and when to say no. Setting boundaries allows you to show up more fully for the relationships and activities that truly matter to you.', image: '🛡️' }
+  { 
+    id: '1', 
+    title: 'Managing Anxiety with Gentle Techniques', 
+    content: 'Anxiety often feels like an internal alarm system stuck in the "on" position. Instead of fighting it, learn to coexist with these sensations using somatic grounding. Techniques like the 5-4-3-2-1 method or "Box Breathing" help signal to your nervous system that you are safe in the present moment.', 
+    image: '🧘',
+    category: 'Mental Health'
+  },
+  { 
+    id: '2', 
+    title: 'The Science of Restorative Sleep', 
+    content: 'Sleep is the foundation of emotional regulation. Chronic sleep deprivation impairs the prefrontal cortex, making it harder to manage daily stressors. Discover why a consistent bedtime ritual—free from blue light and heavy thoughts—is essential for mental clarity.', 
+    image: '🌙',
+    category: 'Wellness'
+  },
+  { 
+    id: '3', 
+    title: 'Mindful Digital Consumption', 
+    content: 'Our digital habits deeply influence our mental peace. Learn to cultivate a "digital garden" by curating your feeds to inspire rather than deplete you. We discuss the benefits of intentional scrolling and setting clear digital boundaries.', 
+    image: '📱',
+    category: 'Lifestyle'
+  },
+  { 
+    id: '4', 
+    title: 'Understanding Emotional Triggers', 
+    content: 'Triggers are often echoes of past experiences surfacing in the present. By practicing self-inquiry, you can learn to pause before reacting, transforming a moment of distress into an opportunity for profound self-understanding.', 
+    image: '🌱',
+    category: 'Psychology'
+  },
+  { 
+    id: '5', 
+    title: 'The Power of Self-Compassion', 
+    content: 'We are often our own harshest critics. Self-compassion involves treating yourself with the same kindness you would offer a dear friend in pain. Learn the three pillars: self-kindness, common humanity, and mindfulness.', 
+    image: '✨',
+    category: 'Self-Growth'
+  },
+  { 
+    id: '6', 
+    title: 'Building Healthy Boundaries', 
+    content: 'Boundaries are not walls; they are the gates that protect your energy and define your identity. Setting them is an act of self-respect. Explore practical scripts on how to say "no" with confidence and grace.', 
+    image: '🛡️',
+    category: 'Relationships'
+  }
 ];
 
 export default function BlogList() {
   return (
-    <section className="page blog-list">
-      <h2>Emotional Wellness Insights ;</h2>
-      <p>Explore thoughtful articles designed to support your mental health journey with compassion and understanding.</p>
-      <div className="cards">
+    <div className="page blog-list">
+      <div className="concern-intro">
+        <h2>Emotional Wellness Insights</h2>
+        <p>Thoughtful articles designed to support your journey with compassion and evidence-based guidance.</p>
+      </div>
+
+      <div className="grid-container">
         {posts.map((post) => (
-          <article key={post.id} className="card">
-            <div className="illustration" style={{ fontSize: '3rem', marginBottom: '1rem' }}>{post.image}</div>
+          <article key={post.id} className="card blog-card">
+            <div className="illustration">{post.image}</div>
+            <span className="category-tag">{post.category}</span>
             <h3>{post.title}</h3>
-            <p>{post.excerpt}</p>
-            <Link to={`/blogs/${post.id}`}>Read Full Article →</Link>
+            <p>{post.content}</p>
+            <Link to={`/blogs/${post.id}`} className="cta-secondary">
+              Read Full Article →
+            </Link>
           </article>
         ))}
       </div>
-    </section>
+    </div>
   );
 }
