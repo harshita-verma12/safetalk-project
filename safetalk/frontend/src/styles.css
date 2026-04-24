@@ -768,4 +768,55 @@ button:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(108, 92,
   .nav-button {
     width: 80%; /* Buttons can be slightly narrower on tablets/desktops */
   }
+
+* { box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* Prevents horizontal scrollbar */
 }
+
+main {
+  width: 100%;
+  padding: 1rem;      /* Reduce padding on mobile */
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Ensure inputs and buttons don't break layout */
+input, textarea, select, button {
+  width: 100%;
+  max-width: 100%; /* Keeps elements within their parent */
+}
+
+/* For your journal/story forms */
+.form-row {
+  display: flex;
+  flex-direction: column; /* Stack fields vertically on mobile */
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .form-row {
+    flex-direction: row; /* Switch back to row on desktop */
+  }
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  .site-header nav {
+    flex-direction: column; /* Stack links vertically */
+    width: 100%;
+    gap: 0.5rem;
+  }
+  
+  .site-header a {
+    width: 100%; /* Make links easier to tap */
+  }
+}
+
