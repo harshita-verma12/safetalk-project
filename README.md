@@ -2,7 +2,7 @@ SafeTalk - Mental Health Support
 SafeTalk is a digital sanctuary designed to provide a safe space for mental health reflection, peer support, and emotional well-being. Built with the MERN stack, the platform enables users to track their moods, share personal experiences, and connect with a supportive community.
 
 🚀 Live Demo
-Access the platform here: https://safetalk-project-git-main-harshita-verma12s-projects.vercel.app/
+Access the platform here: [shita-vhttps://safetalk-project-git-main-harerma12s-projects.vercel.app/](https://safetalk-project-8rm1.vercel.app/)
 
 ✨ Key Features
 Mood Sanctuary: An interactive, color-coded mood matrix that helps users identify and understand their emotional states with psychological context.
