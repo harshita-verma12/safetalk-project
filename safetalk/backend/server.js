@@ -6,13 +6,14 @@ dotenv.config();
 
 const app = express();
 
-// Allow all origins for deployment (Render)
+// Allow all origins for deployment
 app.use(cors({
-  origin: true, // Allow all origins in production
+  origin: true,
   credentials: true
 }));
 
 app.use(express.json());
+
 // In-memory storage for demo
 let users = [];
 let journals = [];
@@ -30,5 +31,11 @@ app.use('/api/ai', aiRoutes);
 
 app.get('/api/health', (req, res) => res.json({ status: 'OK', app: 'safetalk backend' }));
 
-const port = process.env.PORT || 5000;
-app.listen(port, () => console.log(`Server running on port ${port}`));
+// For local development
+if (process.env.NODE_ENV !== 'production') {
+  const port = process.env.PORT || 5000;
+  app.listen(port, () => console.log(`Server running on port ${port}`));
+}
+
+// Export for Vercel serverless
+module.exports = app;
