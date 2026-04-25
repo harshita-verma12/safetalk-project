@@ -5,16 +5,14 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express();
-app.use(cors());
-app.use(express.json());
-const cors = require('cors');
 
-// This allows requests from your specific Vercel URL
+// Allow all origins for deployment (Render)
 app.use(cors({
-  origin: 'https://safetalk-project-git-main-harshita-verma12s-projects.vercel.app/', // CHANGE THIS to your actual Vercel URL
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  origin: true, // Allow all origins in production
   credentials: true
 }));
+
+app.use(express.json());
 // In-memory storage for demo
 let users = [];
 let journals = [];
