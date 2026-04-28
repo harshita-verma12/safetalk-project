@@ -77,7 +77,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
           <Route path="/moodboard" element={<ProtectedRoute><MoodBoard /></ProtectedRoute>} />
-          <Route path="/community" element={<ProtectedRoute><Community /></ProtectedRoute>} />
+          <Route path="/community" element={<Community />} />
           <Route path="/areas" element={<ProtectedRoute><AreasOfConcern /></ProtectedRoute>} />
           <Route path="/assistant" element={<ProtectedRoute><AIChat /></ProtectedRoute>} />
           <Route path="*" element={<Navigate to="/" />} />

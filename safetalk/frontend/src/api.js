@@ -3,7 +3,7 @@ import axios from 'axios';
 // Configure base URL for production
 // In development: proxy forwards /api to localhost:5000
 // In production: use the Render backend URL
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://safetalk-project.onrender.com';
+const API_BASE_URL = import.meta.env.VITE_API_URL || '';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
