@@ -33,6 +33,7 @@ app.get('/api/health', (req, res) => res.json({ status: 'OK', app: 'safetalk bac
 
 
 const port = process.env.PORT || 5000;
-app.listen(port, () => {
+const host = '0.0.0.0';
+app.listen(port, host, () => {
   console.log(`Server running on port ${port}`);
 });
