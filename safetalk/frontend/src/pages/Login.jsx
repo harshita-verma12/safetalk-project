@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import axios from 'axios';
+import api from '../api';
 import { useNavigate, Link } from 'react-router-dom';
 
 export default function Login() {
@@ -19,7 +19,7 @@ export default function Login() {
     setMsg({ text: '', type: '' });
 
     try {
-      const res = await axios.post('/api/auth/login', form);
+      const res = await api.post('/auth/login', form);
       
       // 1. Save the token
       window.localStorage.setItem('safetalk-token', res.data.token);

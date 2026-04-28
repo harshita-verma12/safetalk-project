@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
+import api from '../api';
 
 export default function AIChat() {
   const [message, setMessage] = useState('');
@@ -28,7 +28,7 @@ export default function AIChat() {
 
     try {
       // Sending context to the AI (ensure your backend handles history for better responses)
-      const res = await axios.post('/api/ai/assistant', { 
+      const res = await api.post('/ai/assistant', { 
         message: userText,
         history: conversation.slice(-5) // Send last 5 messages for context
       });

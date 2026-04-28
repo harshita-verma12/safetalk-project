@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../api';
 
 const journalPrompts = [
   "What am I grateful for today?",
@@ -26,7 +26,7 @@ export default function Profile() {
 
   const fetchEntries = async () => {
     try {
-      const res = await axios.get('/api/profile/journals', { headers: { 'x-auth-token': token } });
+      const res = await api.get('/profile/journals', { headers: { 'x-auth-token': token } });
       setEntries(res.data);
     } catch (err) { console.error("Could not fetch entries."); }
   };
@@ -36,7 +36,7 @@ export default function Profile() {
   const submitJournal = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/profile/journals', { entry: journal, mood }, { headers: { 'x-auth-token': token } });
+      await api.post('/profile/journals', { entry: journal, mood }, { headers: { 'x-auth-token': token } });
       setJournal('');
       setMessage({ text: 'Entry saved.', type: 'success' });
       fetchEntries();
