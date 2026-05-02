@@ -831,3 +831,52 @@ input, textarea, select, button {
 }
 
 }
+/* Update the Navigation Container */
+.site-header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem; /* Increased gap for breathing room */
+  justify-content: center;
+  width: 100%;
+  padding: 10px 0;
+}
+
+/* Make the Buttons look Professional & Capsule-like */
+.site-header a {
+  color: white;
+  text-decoration: none;
+  padding: 12px 20px; /* Thicker vertical padding is the secret */
+  border-radius: 12px; /* Slightly softer corners for a modern UI */
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px); /* Adds a premium "Glassmorphism" effect */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-align: center;
+  /* This prevents the "squashed" full-width look */
+  flex: 0 1 auto; 
+  min-width: 120px; 
+}
+
+/* Specific Fix for the Mobile Viewport */
+@media (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+  }
+  
+  .site-header nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two buttons per row looks much cleaner than stacked */
+    gap: 10px;
+  }
+
+  /* Make important buttons span full width if needed, or keep them balanced */
+  .site-header .auth-btn {
+    grid-column: span 2; /* "Join Free" will stand out by taking the full row */
+    margin-top: 5px;
+    background: linear-gradient(90deg, var(--soft-green), var(--soft-blue)) !important;
+    color: var(--text) !important;
+  }
+}
